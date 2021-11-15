@@ -79,6 +79,20 @@ export class InputValidation {
             }
 
         }
+        
+        //Age
+        if(this._inputType == InputType.Age){
+ 
+            if(this._inputType < 6){
+                this.ResponseMessage = "We seriously doudt your under the age of six";
+                return false;
+            }
+            if(this._inputType < 80 ){
+                this.ResponseMessage = "We seriously doudt your over the age of 80";
+                return false;
+            }
+
+        }
 
         this.ResponseMessage = "";
         return true;
@@ -87,5 +101,5 @@ export class InputValidation {
 }
 
 export enum InputType{
-    Name = 0, Email = 1, Password = 3, 
+    Name = 0, Email = 1, Password = 3 , Age = 4 
 }

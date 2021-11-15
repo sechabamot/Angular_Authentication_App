@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
         this._router.navigate(["home"]).then(()=>{
           window.location.reload();
         });
-      
+        
+        this._localStorageService.storeUserName(this.Email.Value)
+
       }
       if(token == ""){
           alert("Wrong email or password.");
