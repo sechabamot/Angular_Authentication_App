@@ -1,0 +1,21 @@
+<!-- Navbar Meduim to large Screens -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+      <a class="navbar-brand p-2 fs-6" routerLink="/">
+        Company Name
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end mr-3">
+        <ul class="navbar-nav  mb-2 mb-lg-0 align-items-center">
+          <li class="nav-item p-2" *ngIf="!_userAuthenticated">
+            <a class="nav-link"  routerLink="/login" >Login</a  >
+          </li>
+          <li class="nav-item p-2" *ngIf="_userAuthenticated">
+            <app-user-icon [_userAuthenticated] = "_userAuthenticated"></app-user-icon>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
