@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { InputValidation, InputType } from 'src/app/models/input-validation.model';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -9,13 +10,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private _authService:AuthService) { }
+  constructor(private _authService:AuthService, private _router:Router) { }
 
   Email:InputValidation = new InputValidation(InputType.Email, "");
   Password:InputValidation = new InputValidation(InputType.Password, "");
 
-  ngOnInit(): void {
-    
+  async ngOnInit(){
+    await this.redirectAuthenticatedUser();
+  }
+
+  async redirectAuthenticatedUser(){
+    const result = await this._authService.IsAuthenticated();
+    if(result){
+      this._router.navigate(["home"]);
+    }
   }
 
   async signUp(){

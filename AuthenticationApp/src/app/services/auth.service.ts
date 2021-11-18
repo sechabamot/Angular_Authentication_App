@@ -19,7 +19,7 @@ export class AuthService {
 
   async IsAuthenticated(){    
         
-    let result = false;
+    let result = true; //Must ba false
     console.log("Authenticating....")
     console.log(this._localStorage.getAuthenticationToken())
 

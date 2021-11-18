@@ -4,16 +4,14 @@ export class UserModel {
 
     }
 
-    public DisplayName:string = "";
-    public About:string = "";
-    public Age:number = 0;
-    public Gender:gender = gender.None;
-    public DateJoined:Date = new Date();
-    public AvatarFilePath:string = "";
-    public UserId:string = ""
-
+    public displayName:string = "Uknown";
+    public thougts:string = "The user signed in but did not share ary of their thoughts about the application.";
+    public dateJoined:Date = new Date();
+    public avatarFilePath:string = "";
+    public userId:string | null = "";
+    public guestType:GuestType = 3;
 }
 
-export enum gender{
-    None = 0, Male=1, Femail = 2
+export enum GuestType{
+    Recruiter = 1, Developer = 2, Other = 3
 }

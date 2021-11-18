@@ -16,8 +16,15 @@ export class LoginComponent implements OnInit {
 
   constructor(private _authService:AuthService, private _localStorageService:LocalStorageService, private _router:Router) { }
 
-  ngOnInit(): void {
-    
+  async ngOnInit(){
+    this.redirectAuthenticatedUser();
+  }
+
+  async redirectAuthenticatedUser(){
+    const result = await this._authService.IsAuthenticated()
+    if(result){
+      this._router.navigate(["home"]);
+    }
   }
 
   async login(){
